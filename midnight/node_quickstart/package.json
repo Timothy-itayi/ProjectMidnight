@@ -8,13 +8,13 @@
     "build": "tsc -p tsconfig.build.json",
     "start": "node dist/index.js",
     "ts-node": "ts-node --project tsconfig.build.json index.ts"
-    
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^1.7.3",
     "mongodb": "6.8"
   },
   "devDependencies": {
