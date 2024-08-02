@@ -1,8 +1,14 @@
+import 'dotenv/config'; 
 import { MongoClient } from 'mongodb';
 
-const uri = "mongodb+srv://timothy_itayi:0MB0IRKLAy3f1FFc@cluster0.s2az4ev.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+ const uri = process.env.MONGO_URL;
+
+if (!uri) {
+    throw new Error("MONGO_URL environment variable is not set")
+}
 
 const client = new MongoClient(uri);
+console.log('MONGO_URL:', process.env.MONGO_URL);
 
 async function run() {
   try {

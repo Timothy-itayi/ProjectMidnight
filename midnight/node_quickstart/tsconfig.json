@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "./dist",
+      "rootDir": "./node_quickstart",
+      "baseUrl": "./",
+      "paths": {
+        "*": ["node_modules/*", "src/types/*"]
+      }
+    },
+    "include": [
+ 
+      "src/**/*.ts",
+      "node_quickstart/**/*.ts",
+    ],
+    "exclude": [
+      "node_modules",
+      "dist"
+    ],
+    "ts-node": {
+      "esm": true
+    }
+  }
+  

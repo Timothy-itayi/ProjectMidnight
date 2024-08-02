@@ -7,9 +7,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import 'dotenv/config';
 import { MongoClient } from 'mongodb';
-const uri = "mongodb+srv://timothy_itayi:0MB0IRKLAy3f1FFc@cluster0.s2az4ev.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGO_URL;
+if (!uri) {
+    throw new Error("MONGO_URL environment variable is not set");
+}
 const client = new MongoClient(uri);
+console.log('MONGO_URL:', process.env.MONGO_URL);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {

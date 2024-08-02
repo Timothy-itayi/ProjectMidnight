@@ -4,10 +4,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+      "test": "tsx test.ts",
     "build": "tsc -p tsconfig.build.json",
-    "start": "node dist/index.js",
-    "ts-node": "ts-node --project tsconfig.build.json index.ts"
+    "start": "tsx watch index.ts",
+    "ts-node": "ts-node --project tsconfig.json /index.ts",
+    "seed":  "tsx ../src/adapters/database/libs/seedFromAPI.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,11 +16,15 @@
   "description": "",
   "dependencies": {
     "axios": "^1.7.3",
-    "mongodb": "6.8"
+    "dotenv": "^16.4.5",
+    "mongodb": "6.8",
+    "tsx": "^4.16.5"
   },
   "devDependencies": {
     "@types/mongodb": "^4.0.7",
     "@types/node": "^22.0.2",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   }
 }
