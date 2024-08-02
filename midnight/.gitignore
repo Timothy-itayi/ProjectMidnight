@@ -6,6 +6,9 @@
 .pnp.js
 .yarn/install-state.gz
 
+# Ignore node_modules directories
+node_modules/
+
 # testing
 /coverage
 
