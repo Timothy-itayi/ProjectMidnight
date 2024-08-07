@@ -6,40 +6,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "../../../utils/cn";
-import { BentoGrid, BentoGridItem } from "@/client-side-components/bento-card";
 import { Card, Carousel } from "@/client-side-components/carousel-card";
 
 const Home = () => {
-  const links = [
-    {
-      label: "Products",
-      href: "/products",
-      icon: (
-        <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Cart",
-      href: "/cart",
-      icon: (
-        <IconShoppingCart className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Contact",
-      href: "/contact",
-      icon: (
-        <IconInfoCircle className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "About",
-      href: "/about",
-      icon: (
-        <IconAddressBook className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-  ];
 
   const [open, setOpen] = useState(false);
 
@@ -63,8 +32,8 @@ const Home = () => {
           <div>
             <SidebarLink
               link={{
-                label: "Customer",
-                href: "#",
+                label: "Register",
+                href: "/register",
                 icon: (
                   <Image
                     src="/placeholder/products.png"
@@ -85,6 +54,7 @@ const Home = () => {
 };
 
 export default Home;
+  // Sidebar.tsx //
 
 export const Logo = () => {
   return (
@@ -98,7 +68,7 @@ export const Logo = () => {
         animate={{ opacity: 1 }}
         className="font-medium text-black dark:text-white whitespace-pre"
       >
-        Project Midnight
+        RaceReady Gear
       </motion.span>
     </Link>
   );
@@ -131,7 +101,10 @@ const Dashboard = () => {
    
   );
 };
+  // Sidebar.tsx //
 
+
+// Carousel.tsx // 
 
 const Content = () => {
   return (
@@ -162,6 +135,8 @@ const Content = () => {
   );
 };
 
+// Carousel.tsx // 
+
 const data = [
 
 
@@ -185,3 +160,34 @@ const data = [
   },
 ];
 
+// SideBar.tsx
+const links = [
+  {
+    label: "Products",
+    href: "/products",
+    icon: (
+      <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+    ),
+  },
+  {
+    label: "Cart",
+    href: "/cart",
+    icon: (
+      <IconShoppingCart className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+    ),
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+    icon: (
+      <IconInfoCircle className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+    ),
+  },
+  {
+    label: "About",
+    href: "/about",
+    icon: (
+      <IconAddressBook className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+    ),
+  },
+];
