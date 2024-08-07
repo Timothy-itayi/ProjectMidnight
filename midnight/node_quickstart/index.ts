@@ -3,12 +3,16 @@ import { MongoClient } from 'mongodb';
 
  const uri = process.env.MONGO_URL;
 
+ 
 if (!uri) {
     throw new Error("MONGO_URL environment variable is not set")
 }
 
-const client = new MongoClient(uri);
-console.log('MONGO_URL:', process.env.MONGO_URL);
+const client = new MongoClient(uri, {
+  connectTimeoutMS: 10000,  // 10 seconds
+  socketTimeoutMS: 45000    // 45 seconds
+});
+console.log('MONGO_URL:',process.env.MONGO_URL);
 
 async function run() {
   try {

@@ -13,7 +13,10 @@ const uri = process.env.MONGO_URL;
 if (!uri) {
     throw new Error("MONGO_URL environment variable is not set");
 }
-const client = new MongoClient(uri);
+const client = new MongoClient(uri, {
+    connectTimeoutMS: 10000, // 10 seconds
+    socketTimeoutMS: 45000 // 45 seconds
+});
 console.log('MONGO_URL:', process.env.MONGO_URL);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
