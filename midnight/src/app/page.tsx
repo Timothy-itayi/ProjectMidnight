@@ -1,9 +1,10 @@
-import Navbar from "../app/components/navbar";
+
 import Home from "../app/components/home"
+import "./globals.css";
 const Page = () => {
   return (
     <div className="relative w-full">
-      <Navbar />
+
       <Home />
     </div>
   );
