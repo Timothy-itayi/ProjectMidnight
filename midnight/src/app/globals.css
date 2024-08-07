@@ -3,21 +3,44 @@
 @tailwind utilities;
 
 
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
 
-
-
-/* globals.css */
 body {
-  margin: 0;
-  overflow: hidden; /* Hide overflow during GSAP animations */
+  color: rgb(var(--foreground-rgb));
+ background-color: white;
 }
 
-.container {
-  height: 100vh; /* Ensure container takes full viewport height */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
-.section {
-  height: 100vh; /* Ensure each section takes full viewport height */
-  width: 100%; /* Ensure sections take full width */
-}
+/* @font-face {
+  font-family: 'Formula1-Bold ';
+  src: url('../fonts//Formula1-Bold.otf') format('truetype');
+  /* Add additional src entries if you have other font file formats */
+/* }
+
+@font-face {
+  font-family: 'Formula1-Wide';
+  src: url('../fonts/Formula1-Wide.otf') format('truetype');
+  /* Add additional src entries if you have other font file formats */
+
+
+/* @font-face {
+  font-family: 'Formula1-Regular';
+  src: url('../fonts/Formula1-Regular.otf') format('truetype');
+  /* Add additional src entries if you have other font file formats */
+
+
+

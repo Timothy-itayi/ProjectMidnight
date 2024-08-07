@@ -6,40 +6,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "../../../utils/cn";
-import { BentoGrid, BentoGridItem } from "@/client-side-components/bento-card";
-import { Carousel } from "@/client-side-components/carousel-card";
+import { Card, Carousel } from "@/client-side-components/carousel-card";
 
 const Home = () => {
-  const links = [
-    {
-      label: "Products",
-      href: "/products",
-      icon: (
-        <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Cart",
-      href: "/cart",
-      icon: (
-        <IconShoppingCart className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "Contact",
-      href: "/contact",
-      icon: (
-        <IconInfoCircle className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
-      label: "About",
-      href: "/about",
-      icon: (
-        <IconAddressBook className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-  ];
 
   const [open, setOpen] = useState(false);
 
@@ -63,8 +32,8 @@ const Home = () => {
           <div>
             <SidebarLink
               link={{
-                label: "Customer",
-                href: "#",
+                label: "Register",
+                href: "/register",
                 icon: (
                   <Image
                     src="/placeholder/products.png"
@@ -85,6 +54,7 @@ const Home = () => {
 };
 
 export default Home;
+  // Sidebar.tsx //
 
 export const Logo = () => {
   return (
@@ -98,7 +68,7 @@ export const Logo = () => {
         animate={{ opacity: 1 }}
         className="font-medium text-black dark:text-white whitespace-pre"
       >
-        Project Midnight
+        RaceReady Gear
       </motion.span>
     </Link>
   );
@@ -117,24 +87,25 @@ export const LogoIcon = () => {
 
 
 const Dashboard = () => {
+  const cards = data.map((card, index) => (
+    <Card key={card.src} card={card} index={index} layout={true} />
+  ));
+
   return (
-    <div className="flex flex-1">
-      <div className="p-2 md:p-10 rounded-tl-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 flex flex-col gap-2 flex-1 w-full h-full">
-  
-      
-        <div className="flex gap-1 flex-1">
-        <Carousel items={data.map(item => (
-          <div key={item.title}>
-            <Image src={item.src} alt={item.title} width={300} height={200} />
-            <div>{item.content}</div>
-          </div>
-        ))} />
-        </div>
-      </div>
-      </div>
+   <div className="w-full h-full py-20">
+  <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+  Premium F1 Apparel & Accessories
+  </h2>
+  <Carousel items={cards} />
+</div>
    
   );
 };
+  // Sidebar.tsx //
+
+
+// Carousel.tsx // 
+
 const Content = () => {
   return (
     <>
@@ -142,19 +113,19 @@ const Content = () => {
         return (
           <div
             key={"dummy-content" + index}
-            className="bg-[#F5F5F7] p-8 md:p-14 rounded-3xl mb-4"
+            className="bg-[#F5F5F7] p-8 md:p-14 rounded-3xl mb-4 flex flex-row" 
           >
             <p className="text-neutral-600 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-neutral-700">
-                Project Midnight 
+              <span className="font-bold text-neutral-700 flex justify-center">
+              RaceReady Gear
               </span>{" "}
-              Fast, Easy shopping for F1 gear and apparel
+              Unleash Your Speed: Premium F1 Apparel & Accessories
             </p>
             <Image
               src="/placeholder/f1.jpeg"
               alt="placeholder"
-              height="500"
-              width="500"
+              height="50"
+              width="50"
               className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
             />
           </div>
@@ -164,26 +135,59 @@ const Content = () => {
   );
 };
 
+// Carousel.tsx // 
+
 const data = [
 
 
   {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: '/placeholder/build.jpeg',
+    category: "Helmet",
+    title: "Products ",
+    src: '/placeholder/product1.avif',
     content: <Content />,
   },
   {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: '/placeholder/build.jpeg',
+    category: "Legend",
+    title: "Sim Racing",
+    src: '/placeholder/product2.avif',
     content: <Content />,
   },
   {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: '/placeholder/build.jpeg',
+    category: "Racer",
+    title: "Apparel",
+    src: '/placeholder/product3.avif',
     content: <Content />,
   },
 ];
 
+// SideBar.tsx
+const links = [
+  {
+    label: "Products",
+    href: "/products",
+    icon: (
+      <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+    ),
+  },
+  {
+    label: "Cart",
+    href: "/cart",
+    icon: (
+      <IconShoppingCart className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+    ),
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+    icon: (
+      <IconInfoCircle className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+    ),
+  },
+  {
+    label: "About",
+    href: "/about",
+    icon: (
+      <IconAddressBook className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+    ),
+  },
+];
