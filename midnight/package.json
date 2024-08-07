@@ -9,11 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "axios": "^1.7.3",
+    "clsx": "^2.1.1",
+    "flowbite-react": "^0.10.1",
+    "framer-motion": "^11.3.21",
+    "gsap": "^3.12.5",
     "mongoose": "^8.5.2",
     "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-merge": "^2.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",
