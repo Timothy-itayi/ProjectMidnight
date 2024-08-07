@@ -20,6 +20,7 @@ const  Content = () => {
 
 export default Content;
 const DummyContent = () => {
+ 
   return (
     <>
       {[...new Array(3).fill(1)].map((_, index) => {
@@ -56,20 +57,20 @@ const data = [
 
   {
     category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: '/placeholder/build.jpeg',
+    title: "Helmets",
+    src: '/placeholder/product1.avif',
     content: <DummyContent />,
   },
   {
-    category: "iOS",
+    category: "",
     title: "Photography just got better.",
-    src: '/placeholder/build.jpeg',
+    src: '/placeholder/product2.avif',
     content: <DummyContent />,
   },
   {
     category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: '/placeholder/build.jpeg',
+    title: "r",
+    src: '/placeholder/product3.avif',
     content: <DummyContent />,
   },
 ];
